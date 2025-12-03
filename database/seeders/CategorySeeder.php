@@ -22,7 +22,6 @@ class CategorySeeder extends Seeder
             'Science',
             'History',
             'Biography',
-            'Psychology',
             'Education',
             'Comics',
         ];

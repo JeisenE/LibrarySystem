@@ -24,7 +24,7 @@ class BorrowSeeder extends Seeder
                 'user_id' => $user->id,
                 'book_id' => $books->random()->id,
                 'borrow_date' => now(),
-                'due_date' => now()->addDays(7),
+                'due_date' => now()->addDays(14),
                 'return_date' => null,
                 'status' => 'borrowed',
             ]);
