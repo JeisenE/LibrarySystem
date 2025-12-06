@@ -12,7 +12,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $books = \App\Models\Book::with('authors', 'categories')->inRandomOrder()->take(7)->get();
+        $books = \App\Models\Book::with('authors', 'categories')->take(7)->get();
         $featuredBook = $books->first();
         $books = $books->skip(1);
 
