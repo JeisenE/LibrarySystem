@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -14,6 +15,13 @@ class BookController extends Controller
     {
         $books = Book::with(['authors','categories'])->get();
         return view('home',compact('books'));
+    }
+
+    // View All Books
+    public function viewAll()
+    {
+        $categories = Category::with(['books.authors', 'books.categories'])->get();
+        return view('viewAll', compact('categories'));
     }
 
     /**

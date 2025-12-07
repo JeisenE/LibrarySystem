@@ -38,7 +38,7 @@
     <div class="space-y-8">
         <div class="flex justify-between items-end">
             <h2 class="text-2xl font-bold text-white">Books We Have</h2>
-            <a href="{{ route('books.index') }}" class="text-sm text-gray-400 hover:text-white transition border-b border-gray-600 hover:border-white pb-1">View All</a>
+            <a href="{{ route('view-all') }}" class="text-sm text-gray-400 hover:text-white transition border-b border-gray-600 hover:border-white pb-1">View All</a>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">

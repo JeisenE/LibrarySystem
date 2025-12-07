@@ -15,7 +15,7 @@
         <!-- Navbar -->
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <span class="text-xl font-bold">idk the title</span>
+                <span class="text-xl font-bold">Library System</span>
             </div>
             <div class="flex items-center space-x-8">
                 <a href="{{ route('home') }}" class="text-orange-200 hover:text-white transition">Home</a>
@@ -23,13 +23,15 @@
                 <div class="flex items-center space-x-2 text-gray-400">
                     <div
                         class="w-8 h-8 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center font-bold text-xs">
-                        YEET
+                        MB
                     </div>
-                    <span>idk</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span>Manusia Bumi</span>
+                    <a href="{{ route('login-page') }}">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -38,6 +40,7 @@
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
 </body>
 
 </html>

@@ -2,18 +2,29 @@
 
 @section('content')
     <div class="flex flex-col">
-        <h1 class="text-xl font-semibold">Welcome Back to the Library System</h1>
-        <p class="text-md mt-1">Access the vast collection of resources, and stay updated</p>
+        <h1 class="text-xl font-semibold">Create Your Library Account</h1>
+        <p class="text-md mt-1">Please complete all fields to create your own accoutn</p>
     </div>
 
     <div class="flex flex-col gap-y-5">
+        <div class="flex flex-col">
+            <label class="ms-[4px]">Full Name</label>
+            <input 
+                type="name" 
+                name="name" 
+                class="mt-1 p-3 bg-slate-800 border border-slate-700 rounded-xl outline-none focus:ring-2 focus:ring-orange-300"
+                placeholder="Enter your name"
+                required
+            >
+        </div>
+
         <div class="flex flex-col">
             <label class="ms-[4px]">Email</label>
             <input 
                 type="email" 
                 name="email" 
                 class="mt-1 p-3 bg-slate-800 border border-slate-700 rounded-xl outline-none focus:ring-2 focus:ring-orange-300"
-                placeholder="Enter your email"
+                placeholder="example@gmail.com"
                 required
             >
         </div>
@@ -23,18 +34,18 @@
                 type="password" 
                 name="password"
                 class="mt-1 p-3 bg-slate-800 border border-slate-700 rounded-xl outline-none focus:ring-2 focus:ring-orange-300"
-                placeholder="Enter your password"
+                placeholder="Atleast 8 characters long"
                 required
             >
         </div>
 
         <button class="bg-[#EAD4AA] text-black font-bold py-3 px-8 rounded flex items-center justify-center space-x-2 hover:bg-[#dcc08e] transition mt-2">
-            <span>Login</span>
+            <span>Sign Up</span>
         </button>
     </div>
 
     <div class="flex flex-row gap-[4px] self-center">
-        <p>Don't have an account already ?</p>
-        <a href="{{ route('regis-page') }}" class="text-orange-200">Register Here</a>
+        <p>Have an account already ?</p>
+        <a href="{{ route('login-page') }}" class="text-orange-200">Login</a>
     </div>
 @endSection
