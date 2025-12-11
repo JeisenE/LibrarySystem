@@ -1,6 +1,10 @@
 @extends('layouts.regLog')
 
 @section('content')
+
+<form action = "{{ route('register') }}" method="POST" class = "flex flex-col gap-y-5">
+    @csrf
+    
     <div class="flex flex-col">
         <h1 class="text-xl font-semibold">Create Your Library Account</h1>
         <p class="text-md mt-1">Please complete all fields to create your own accoutn</p>
@@ -27,6 +31,9 @@
                 placeholder="example@gmail.com"
                 required
             >
+            @error('email')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
         </div>
         <div class="flex flex-col">
             <label class="ms-[4px]">Password</label>
@@ -37,7 +44,11 @@
                 placeholder="Atleast 8 characters long"
                 required
             >
+            @error('password')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
         </div>
+        
 
         <button class="bg-[#EAD4AA] text-black font-bold py-3 px-8 rounded flex items-center justify-center space-x-2 hover:bg-[#dcc08e] transition mt-2">
             <span>Sign Up</span>
@@ -46,6 +57,7 @@
 
     <div class="flex flex-row gap-[4px] self-center">
         <p>Have an account already ?</p>
-        <a href="{{ route('login-page') }}" class="text-orange-200">Login</a>
+        <a href="{{ route('loginForm') }}" class="text-orange-200">Login</a>
     </div>
+</form>
 @endSection

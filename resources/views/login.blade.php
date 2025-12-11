@@ -1,6 +1,10 @@
-@extends('layouts.regLog')
+@extends('layouts.app')
 
 @section('content')
+
+<form action = "{{ route('login') }}" method = "POST" class = "flex flex-col gap-y-5">
+    @csrf
+        
     <div class="flex flex-col">
         <h1 class="text-xl font-semibold">Welcome Back to the Library System</h1>
         <p class="text-md mt-1">Access the vast collection of resources, and stay updated</p>
@@ -28,13 +32,16 @@
             >
         </div>
 
-        <button class="bg-[#EAD4AA] text-black font-bold py-3 px-8 rounded flex items-center justify-center space-x-2 hover:bg-[#dcc08e] transition mt-2">
+        <button 
+            type = "submit"
+            class="bg-[#EAD4AA] text-black font-bold py-3 px-8 rounded flex items-center justify-center space-x-2 hover:bg-[#dcc08e] transition mt-2">
             <span>Login</span>
         </button>
     </div>
 
     <div class="flex flex-row gap-[4px] self-center">
         <p>Don't have an account already ?</p>
-        <a href="{{ route('regis-page') }}" class="text-orange-200">Register Here</a>
+        <a href="{{ route('regisForm') }}" class="text-orange-200">Register Here</a>
     </div>
+</form>
 @endSection
