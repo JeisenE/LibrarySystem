@@ -35,9 +35,15 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function search(Request $request)
     {
-        //
+        $query = $request->input('query');
+        $books = Book::where('title', 'like', "%{$query}%")
+            ->orWhere('description', 'like', "%{$query}%")
+            ->with(['authors', 'categories'])
+            ->get();
+
+        return view('books.search', compact('books', 'query'));
     }
 
     /**
@@ -45,7 +51,8 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        $book->load(['authors', 'categories']);
+        return view('books.show', compact('book'));
     }
 
     /**

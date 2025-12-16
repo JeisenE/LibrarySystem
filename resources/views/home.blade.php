@@ -5,7 +5,7 @@
         <div class="flex flex-col md:flex-row items-center justify-between mb-20">
             <div class="md:w-1/2 space-y-6">
                 <h1 class="text-6xl font-bold leading-tight">{{ $featuredBook->title }}</h1>
-                
+
                 <div class="flex items-center space-x-4 text-gray-400 text-sm">
                     <span>By <span class="text-white">{{ $featuredBook->authors->first()->name ?? 'Unknown Author' }}</span></span>
                     <span>Category: <span class="text-white">{{ $featuredBook->categories->first()->name ?? 'General' }}</span></span>
@@ -44,15 +44,17 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             @foreach($books as $book)
                 <div class="group cursor-pointer">
-                    <div class="relative aspect-[2/3] mb-4 overflow-hidden rounded-lg">
-                        <img src="{{ $book->image ?? 'https://placehold.co/200x300' }}" alt="{{ $book->title }}" class="object-cover w-full h-full group-hover:scale-105 transition duration-300">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                            <span class="bg-white text-black text-xs font-bold px-3 py-1 rounded-full">View</span>
+                    <a href="{{ route('books.show', $book) }}">
+                        <div class="relative aspect-[2/3] mb-4 overflow-hidden rounded-lg">
+                            <img src="{{ $book->image ?? 'https://placehold.co/200x300' }}" alt="{{ $book->title }}" class="object-cover w-full h-full group-hover:scale-105 transition duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                <span class="bg-white text-black text-xs font-bold px-3 py-1 rounded-full">View</span>
+                            </div>
                         </div>
-                    </div>
-                    <h3 class="font-bold text-white truncate">{{ $book->title }}</h3>
-                    <p class="text-sm text-gray-400 truncate">By {{ $book->authors->first()->name ?? 'Unknown' }}</p>
-                    <p class="text-xs text-gray-500 mt-1">{{ $book->categories->first()->name ?? 'General' }}</p>
+                        <h3 class="font-bold text-white truncate">{{ $book->title }}</h3>
+                        <p class="text-sm text-gray-400 truncate">By {{ $book->authors->first()->name ?? 'Unknown' }}</p>
+                        <p class="text-xs text-gray-500 mt-1">{{ $book->categories->first()->name ?? 'General' }}</p>
+                    </a>
                 </div>
             @endforeach
         </div>

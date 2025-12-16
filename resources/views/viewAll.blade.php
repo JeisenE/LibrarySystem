@@ -34,17 +34,19 @@
                         class="group cursor-pointer flex-shrink-0
                                w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 max-w-[200px]"
                     >
-                        <div class="relative aspect-[2/3] mb-4 overflow-hidden rounded-lg">
-                            <img src="{{ $book->image ?? 'https://placehold.co/200x300' }}" 
-                                 alt="{{ $book->title }}" 
-                                 class="object-cover w-full h-full group-hover:scale-105 transition duration-300">
-                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                                <span class="bg-white text-black text-xs font-bold px-3 py-1 rounded-full">View</span>
+                        <a href="{{ route('books.show', $book) }}">
+                            <div class="relative aspect-[2/3] mb-4 overflow-hidden rounded-lg">
+                                <img src="{{ $book->image ?? 'https://placehold.co/200x300' }}" 
+                                    alt="{{ $book->title }}" 
+                                    class="object-cover w-full h-full group-hover:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                    <span class="bg-white text-black text-xs font-bold px-3 py-1 rounded-full">View</span>
+                                </div>
                             </div>
-                        </div>
-                        <h3 class="font-bold text-white truncate">{{ $book->title }}</h3>
-                        <p class="text-sm text-gray-400 truncate">By {{ $book->authors->first()->name ?? 'Unknown' }}</p>
-                        <p class="text-xs text-gray-500 mt-1">{{ $book->categories->first()->name ?? 'General' }}</p>
+                            <h3 class="font-bold text-white truncate">{{ $book->title }}</h3>
+                            <p class="text-sm text-gray-400 truncate">By {{ $book->authors->first()->name ?? 'Unknown' }}</p>
+                            <p class="text-xs text-gray-500 mt-1">{{ $book->categories->first()->name ?? 'General' }}</p>
+                        </a>
                     </div>
                 @empty
                     <p>No data available.</p>

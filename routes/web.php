@@ -8,17 +8,19 @@ use App\Http\Middleware\PreventHistory;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware(MustLogin::class)->middleware(PreventHistory::class)->name('home');
 Route::get('/view-all', [App\Http\Controllers\BookController::class, 'viewAll'])->name('view-all');
+Route::get('/search', [App\Http\Controllers\BookController::class, 'search'])->name('books.search');
+Route::get('/books/{book}', [App\Http\Controllers\BookController::class, 'show'])->name('books.show');
 Route::get('/login', [AuthController::class,'loginForm'])->name('loginForm');
 Route::post('/user/login',[AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class,'registrationForm'])->name('regisForm');
 Route::post('/user/regis',[AuthController::class,'register'])->name('register');
 Route::get('/user/logout', [AuthController::class, 'logout'])->middleware(MustLogin::class)->name('logout');
 //Route::get('/login-page', function () {
-    //return view('login');
+//return view('login');
 //)->name('login-page');
 
 //Route::get('/regist-page', function () {
-    //return view('register');
+//return view('register');
 //})->name('regis-page');
 
 Route::delete('author/{author}',[AuthorController::class, 'destroy'])->name('author.destroy');
