@@ -19,10 +19,14 @@
                 <p class="text-gray-400 leading-relaxed max-w-xl">
                     {{ Str::limit($featuredBook->description, 200) }}
                 </p>
-
-                <button class="bg-[#EAD4AA] text-black font-bold py-3 px-8 rounded flex items-center space-x-2 hover:bg-[#dcc08e] transition">
-                    <span>BORROW BOOK REQUEST</span>
-                </button>
+                <form action = "{{ route('books.borrow') }}" method = "POST">
+                    @csrf
+                    <input type="hidden" name="book_id" value="{{ $featuredBook->id }}">
+                    <input type="hidden" name="redirect_to" value="{{ url()->current() }}">
+                    <button type="submit" class="bg-[#EAD4AA] text-black font-bold py-3 px-8 rounded flex items-center space-x-2 hover:bg-[#dcc08e] transition">
+                        <span>BORROW BOOK REQUEST</span>
+                    </button>
+                </form>
             </div>
 
             <div class="md:w-1/2 flex justify-end relative mt-10 md:mt-0">

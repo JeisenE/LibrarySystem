@@ -32,9 +32,13 @@
                         <span>{{ $borrow->due_date ?? 'Unknown Author' }}</span>
                     </p>
                     
-                    <button class="mt-auto bg-[#EAD4AA] text-black font-bold py-3 rounded flex justify-center hover:bg-[#dcc08e] transition max-w-[150px]">
+                    <form action = "{{route ('books.return')}}" method = "POST">
+                    @csrf
+                    <input type =  "hidden" name = "borrow_id" value = "{{ $borrow->id }}">
+                    <button type = "submit" class="mt-auto bg-[#EAD4AA] text-black font-bold py-3 rounded flex justify-center hover:bg-[#dcc08e] transition max-w-[150px]">
                         <span>Return Book</span>
                     </button>
+                    </form>
                 </div>
             </div>
         </div>

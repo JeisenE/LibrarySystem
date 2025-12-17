@@ -2,64 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categories;
-use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoriesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show all categories.
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show books inside category.
      */
-    public function create()
+    public function show($id)
     {
-        //
-    }
+        $category = Category::with('books.authors', 'books.categories')->findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Categories $categories)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Categories $categories)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Categories $categories)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Categories $categories)
-    {
-        //
+        return view('categories.show', compact('category'));
     }
 }

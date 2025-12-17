@@ -53,10 +53,15 @@
                 </div>
 
                 <div class="pt-6">
-                    <button
+                    <form action = "{{route ('books.borrow') }}" method = "POST">
+                    @csrf
+                    <input type = "hidden" name = "book_id" value = "{{$book->id}}">
+                    <input type="hidden" name="redirect_to" value="{{ url()->previous() }}">
+                    <button type = "submit"
                         class="bg-[#EAD4AA] text-black font-bold py-3 px-8 rounded flex items-center space-x-2 hover:bg-[#dcc08e] transition">
                         <span>BORROW BOOK REQUEST</span>
                     </button>
+                    </form>
                 </div>
             </div>
         </div>
