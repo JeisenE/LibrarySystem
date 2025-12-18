@@ -62,9 +62,12 @@
                     </svg>
                 </form>
                 <div class="flex items-center space-x-2 text-gray-400">
-                    <div
-                        class="w-8 h-8 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center font-bold text-xs">
-                        MB
+                    <div class="w-8 h-8 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center font-bold text-xs">
+                         @if($user)
+                            {{ collect(explode(' ', $user->name))->map(fn($word) => strtoupper($word[0]))->take(2)->join('') }}
+                        @else
+                            G
+                        @endif
                     </div>
                     @if (isset($user) && $user)
                         <span>{{ $user->name }}</span>

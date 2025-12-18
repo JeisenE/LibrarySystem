@@ -28,12 +28,4 @@ Route::get('/admin/{book}/edit-book', [App\Http\Controllers\BookController::clas
 Route::post('/admin/addbook', [AdminController::class, 'store'])->middleware(AdminHandler::class)->name('add-book');
 Route::put('/admin/editbook/{id}', [AdminController::class, 'update'])->middleware(AdminHandler::class)->name('update-book');
 Route::delete('/admin/delete/{id}',[AdminController::class, 'destroy'])->middleware(AdminHandler::class)->name('delete-book');
-//Route::get('/login-page', function () {
-//return view('login');
-//)->name('login-page');
-
-//Route::get('/regist-page', function () {
-//return view('register');
-//})->name('regis-page');
-
 Route::delete('author/{author}',[AuthorController::class, 'destroy'])->name('author.destroy');

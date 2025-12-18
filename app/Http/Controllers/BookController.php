@@ -8,6 +8,7 @@ use App\Models\Author;
 use App\Models\User;
 use App\Models\Borrow;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 
 class BookController extends Controller

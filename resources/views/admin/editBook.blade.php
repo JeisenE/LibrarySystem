@@ -13,7 +13,7 @@
             <div class="flex flex-row gap-5">
                 <div class="w-1/2 max-w-[250px] flex">
                     <div class="relative aspect-[2/3] overflow-hidden rounded-lg bg-gray-700">
-                        <img id="display-image" img src="{{ $book->image ? asset('storage/' . $book->image) : 'https://placehold.co/200x300' }}" alt="{{ $book->title }}"" class="object-cover w-full h-full">
+                        <img id="display-image" img src="{{ $book->image ? asset($book->image) : 'https://placehold.co/200x300' }}" alt="{{ $book->title }}" class="object-cover w-full h-full">
                     </div>
                 </div>
                 <div class="flex flex-col">
