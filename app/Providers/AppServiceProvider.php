@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\URL;
 use App\Models\User;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('user', $user);
         });
-        
+
         if (app()->environment('production')) {
         URL::forceScheme('https');
     }
