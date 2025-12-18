@@ -45,7 +45,7 @@
 
                 <!-- -------------------------------------------------------------------  -->
 
-                <!-- Khusus Role Admin -->
+                <!-- Khusus Role User -->
                  
                 <a href="{{ route('borrowList-page') }}" class="text-orange-200 hover:text-white transition">Borrowed Books</a>
 

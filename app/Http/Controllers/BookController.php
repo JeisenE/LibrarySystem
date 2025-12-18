@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Author;
 use App\Models\User;
 use App\Models\Borrow;
 use Illuminate\Http\Request;
@@ -14,10 +15,13 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $books = Book::with(['authors','categories'])->get();
-        return view('home',compact('books'));
+        if ($request->route()->getName() === 'admin-page') {
+            return view('admin.manage', compact('books'));
+        }
+        return view('home', compact('books'));
     }
 
     // View All Books
@@ -42,7 +46,10 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $authors = Author::all();
+        $categories = Category::all();
+
+        return view('admin.addBook', compact('authors', 'categories'));
     }
 
     /**
@@ -74,7 +81,9 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        $authors = Author::all();
+        $categories = Category::all();
+        return view('admin.editBook', compact('book', 'authors', 'categories'));
     }
 
     /**

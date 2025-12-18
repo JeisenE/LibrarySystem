@@ -20,12 +20,9 @@ Route::post('/books/borrow', [BorrowController::class,'store'])->name('books.bor
 Route::post('/books/return', [BorrowController::class,'returnBook'])->name('books.return');
 Route::get('/user/logout', [AuthController::class, 'logout'])->middleware(MustLogin::class)->name('logout');
 Route::get('/user/borrow-list', [App\Http\Controllers\BookController::class, 'borrowed'])->name('borrowList-page');
-
-    
-Route::get('/admin/manage', function () {
-    return view('admin.manage');
-})->name('admin-page');
-
+Route::get('/admin/manage-books', [App\Http\Controllers\BookController::class, 'index'])->name('admin-page');
+Route::get('/admin/create-book', [App\Http\Controllers\BookController::class, 'create'])->name('create-page');
+Route::get('/admin/{book}/edit-book', [App\Http\Controllers\BookController::class, 'edit'])->name('edit-page');
 
 //Route::get('/login-page', function () {
 //return view('login');
