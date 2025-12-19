@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'idk the title') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
@@ -50,6 +49,11 @@
                     @if(session('role') == 'member')
                         <a href="{{ route('borrowList-page') }}" class="text-orange-200 hover:text-white transition">Borrowed Books</a>
                     @endif
+                @endif
+                    @if(session('role') === 'member')
+                        <a href="{{ route('user.about') }}" class="text-orange-200 hover:text-white transition">
+                            About Us
+                        </a>
                 @endif
                 <!-- -------------------------------------------------------------------  -->
                 <form action="{{ route('books.search') }}" method="GET" class="relative">

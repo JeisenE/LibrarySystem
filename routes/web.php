@@ -29,3 +29,9 @@ Route::post('/admin/addbook', [AdminController::class, 'store'])->middleware(Adm
 Route::put('/admin/editbook/{id}', [AdminController::class, 'update'])->middleware(AdminHandler::class)->name('update-book');
 Route::delete('/admin/delete/{id}',[AdminController::class, 'destroy'])->middleware(AdminHandler::class)->name('delete-book');
 Route::delete('author/{author}',[AuthorController::class, 'destroy'])->name('author.destroy');
+Route::get('/user/about', function () {
+    if (session('role') !== 'member') {
+        abort(403);
+    }
+    return view('user.about');
+})->middleware(MustLogin::class)->name('user.about');
