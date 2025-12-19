@@ -28,7 +28,7 @@
         <!-- LEFT : IMAGE -->
         <div>
             <img 
-                src="{{ asset('images/Education.png') }}" 
+                src="{{ asset('images/Education.jpg') }}" 
                 alt="SDG 4 - Quality Education"
                 class="w-[200px] rounded-2xl shadow-xl"
             >
