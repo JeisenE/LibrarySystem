@@ -5,7 +5,7 @@
 <div class="flex flex-col justify-center">
     <!-- Hero Section -->
     <div class="mx-auto text-center mb-[72px]">
-        <div class="mx-auto aspect-[60/37] w-[650px] max-w-full">
+        <div  class="mx-auto aspect-[60/37] w-full max-w-[320px] sm:max-w-[480px] md:max-w-[650px] lg:max-w-[900px]">
             <img src="ViewAll-hero.png" alt="" class="w-full h-full object-cover">
         </div>
         <h1 class="text-4xl font-bold text-white mt-5">
@@ -32,10 +32,7 @@
             <!-- Slider Container -->
             <div class="slider-container flex gap-6 overflow-x-auto pb-4 scroll-smooth my-10">
                 @forelse($category->books as $book)
-                    <div
-                        class="group cursor-pointer flex-shrink-0
-                               w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 max-w-[200px]"
-                    >
+                    <div class="group cursor-pointer flex-shrink-0 w-[140px] sm:w-[160px] md:w-[180px] lg:w-[200px]">
                         <a href="{{ route('books.show', $book) }}">
                             <div class="relative aspect-[2/3] overflow-hidden rounded-lg">
                                 <img src="{{ $book->image ? asset('storage/' . $book->image) : 'https://placehold.co/200x300' }}" 
@@ -83,9 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // how many cards per screen size
     function getMaxVisible() {
         const width = window.innerWidth;
-        if (width < 640) return 2;    
-        if (width < 1024) return 4;    
-        return 6;                      
+        if (width < 640) return 1;        
+        if (width < 768) return 2;       
+        if (width < 1024) return 3;      
+        if (width < 1256) return 4;      
+        return 5;  
     }
 
     document.querySelectorAll(".slider-container").forEach((slider) => {

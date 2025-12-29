@@ -33,7 +33,7 @@
                 <!-- Book Cover with Glow Effect -->
                 <div class="relative">
                     <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full"></div>
-                    <img src="{{ $featuredBook->image ? asset('storage/' . $featuredBook->image) : 'https://placehold.co/300x450' }}" alt="{{ $featuredBook->title }}" class="relative z-10 w-64 md:w-80 rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500">
+                    <img src="{{ $featuredBook->image ? asset(  $featuredBook->image) : 'https://placehold.co/300x450' }}" alt="{{ $featuredBook->title }}" class="relative z-10 w-64 md:w-80 rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500">
                 </div>
             </div>
         </div>
