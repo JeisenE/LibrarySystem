@@ -65,8 +65,8 @@
                         </form>
                     @else
                         <div class="mt-4 p-3 bg-red-900/50 border border-red-500 rounded-lg">
-                            <p class="text-red-200 text-sm font-semibold">Limit Reached!</p>
-                            <p class="text-red-300 text-xs">You have 3 active loans. Please return them to borrow more.</p>
+                            <p class="text-red-200 text-sm font-semibold">{{ __('message.limit') }}</p>
+                            <p class="text-red-300 text-xs">{{ __('message.reachLimit') }}</p>
                         </div>
                     @endif
                 </div>

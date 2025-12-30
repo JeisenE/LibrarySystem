@@ -17,7 +17,7 @@ class BorrowController extends Controller
         $user_id = session('user_id');
         $activeborrow = Borrow::where('user_id',$user_id)->whereNull('return_date')->count();
         if($activeborrow >= 3){
-            return redirect()->back()->with('error','You have reach the maximum total of borrowed book!');
+            return redirect()->back()->with('error',__('message.reachLimit'));
         }
         
         $location = $request->input('redirect_to', '/');
@@ -25,7 +25,7 @@ class BorrowController extends Controller
         
         $book = Book::findOrFail($request->book_id);
         if (!$book->isAvailable()) {
-            return redirect($location)->with('error', 'Book is already borrowed');
+            return redirect($location)->with('error', __('message.borrowed'));
         }
 
         
@@ -42,7 +42,7 @@ class BorrowController extends Controller
 
 
 
-        return redirect($location)->with('success', 'Book borrowed successfully!');
+        return redirect($location)->with('success', __('message.status'));
     }
 
     /**
@@ -61,6 +61,6 @@ class BorrowController extends Controller
         'status' => 'available'
         ]);
 
-        return redirect()->back()->with('success', 'Book returned successfully!');
+        return redirect()->back()->with('success', __('message.return'));
     }
 }

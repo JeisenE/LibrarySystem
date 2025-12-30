@@ -31,5 +31,11 @@ return [
     'view_title1' => "Explore and Search for",
     'view_title2' => "Any Book ",
     'view_title3' => "That You Need",
-    'no_data' => "No data available"
+    'no_data' => "No data available",
+
+    //borrow list
+    'readlist' => "My reading List",
+    'borrow_date' => "borrow date",
+    'due_date' => 'due date',
+    'butt_return' => 'return book',
 ];

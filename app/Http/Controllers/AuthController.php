@@ -42,12 +42,12 @@ class AuthController extends Controller
             if($role == 'admin'){
                 return redirect()->route('admin-page')->with('success', 'Welcome Admin!');
             }else{
-                return redirect('/')->with('success','Welcome back!');
+                return redirect('/')->with('success',__('message.welcome'));
             }
             
         }
 
-        return back()->with('error','check your email and password');
+        return redirect('/login')->with('error',__('message.pass_invalid'));
 
     }
     

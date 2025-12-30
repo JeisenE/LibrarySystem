@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <h3 class="font-bold text-white truncate">{{ $book->title }}</h3>
-                        <p class="text-sm text-gray-400 truncate">By {{ $book->authors->first()->name ?? 'Unknown' }}</p>
+                        <p class="text-sm text-gray-400 truncate">{{ __('user.author') }} {{ $book->authors->first()->name ?? 'Unknown' }}</p>
                         <p class="text-xs text-gray-500 mt-1">{{ $book->categories->first()->name ?? 'General' }}</p>
                     </a>
                 </div>

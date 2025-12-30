@@ -12,23 +12,31 @@
 
 <body class="bg-[#0B1120] text-white font-sans antialiased">
 
-    @if (session('success'))
-    <div id="toast-container"
-        class="fixed top-5 right-5 bg-green-800 text-white px-6 py-3 rounded shadow-lg opacity-0 transition-opacity duration-500 text-xl z-50">
-        {{ session('success') }}
-    </div>
-    @elseif(session('error'))
+@php
+    $type = session('success') ? 'success' : (session('error') ? 'error' : null);
+    $message = $type ? session($type) : null;
+@endphp
+
+    @if ($type)
         <div id="toast-container"
-            class="fixed top-5 right-5 bg-red-800 text-white px-6 py-3 rounded shadow-lg opacity-0 transition-opacity duration-500 text-xl z-50">
-            {{ session('error') }}
+            class="fixed top-5 right-5 {{ $type == 'success' ? 'bg-green-800' : 'bg-red-800' }} text-white px-6 py-3 rounded shadow-lg opacity-0 transition-opacity duration-500 text-xl z-50">
+            {{__($message)}}
         </div>
     @endif
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+<<<<<<< Updated upstream
             const toast = document.getElementById('toast-container'); 
             
             if (toast) {
+=======
+
+            const toast = document.getElementById('toast-container'); 
+            
+            if (toast) {
+
+>>>>>>> Stashed changes
                 setTimeout(() => {
                     toast.classList.remove('opacity-0');
                     toast.classList.add('opacity-100');

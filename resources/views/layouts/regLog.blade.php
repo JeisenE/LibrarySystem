@@ -11,6 +11,42 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
+@php
+    $type = session('success') ? 'success' : (session('error') ? 'error' : null);
+    $message = $type ? session($type) : null;
+@endphp
+
+    @if ($type)
+        <div id="toast-container"
+            class="fixed top-5 right-5 {{ $type == 'success' ? 'bg-green-800' : 'bg-red-800' }} text-white px-6 py-3 rounded shadow-lg opacity-0 transition-opacity duration-500 text-xl z-50">
+            {{__($message)}}
+        </div>
+    @endif
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const toast = document.getElementById('toast-container'); 
+            
+            if (toast) {
+
+                setTimeout(() => {
+                    toast.classList.remove('opacity-0');
+                    toast.classList.add('opacity-100');
+                }, 100);
+
+                setTimeout(() => {
+                    toast.classList.remove('opacity-100');
+                    toast.classList.add('opacity-0');
+                    
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 500);
+                }, 2500);
+            }
+        });
+    </script>
+
 <body class="bg-[#0B1120] text-white font-sans antialiased">
 
     <div class="grid grid-cols-1 md:grid-cols-2 h-screen">
