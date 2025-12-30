@@ -21,7 +21,7 @@ return [
     //search
     'search_result' => 'Search Results for ',
     'no_book_search' => 'No books found matching your criteria.',
-    'view_detail' => 'lihat detail',
+    'view_detail' => 'see detail',
 
     //show book
     'added' => 'Added on',
@@ -35,7 +35,9 @@ return [
 
     //borrow list
     'readlist' => "My reading List",
-    'borrow_date' => "borrow date",
-    'due_date' => 'due date',
-    'butt_return' => 'return book',
+    'borrow_date' => "Borrow date",
+    'due_date' => 'Due date',
+    'butt_return' => 'Return Book',
+    'butt_read' => 'Read Book',
+    'no_borrow' => 'No Borrowed Books Yet'
 ];

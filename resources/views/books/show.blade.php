@@ -32,9 +32,15 @@
 
                 <div class="border-t border-gray-700 pt-6">
                     <h3 class="text-xl font-bold mb-3">Description</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        {{ $book->description }}
-                    </p>
+                    @if(app()->getLocale() == 'en')
+                        <p class="text-gray-300 leading-relaxed">
+                            {{ $book->description_en}}
+                        </p>
+                    @else
+                        <p class="text-gray-300 leading-relaxed">
+                            {{ $book->description_id}}
+                        </p>
+                    @endif
                 </div>
 
                 <div class="grid grid-cols-2 gap-6 border-t border-gray-700 pt-6">

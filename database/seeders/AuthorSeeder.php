@@ -35,6 +35,23 @@ class AuthorSeeder extends Seeder
             'Harper Lee',
             'John Green',
             'C.S. Lewis',
+            'Morgan Housel',
+            'George S. Clason',
+            'Agatha Christie',
+            'Geronimo Stilton',
+            'Herman Melville',
+            'Sun Tzu',
+            'Enid Blyton',
+            'Simon Sinek',
+            'Dan Brown',
+            'Jeff Kiney',
+            'Mel Robbins',
+            'Virginia Evans',
+            'Andrew Ross Sorkin',
+            'Joseph Nguyen',
+            'James Clear',
+            'Chachaii',
+
         ];
 
         foreach ($authors as $a) {

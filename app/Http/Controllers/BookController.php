@@ -58,13 +58,21 @@ class BookController extends Controller
      * Store a newly created resource in storage.
      */
     public function search(Request $request)
-    {
+    {   
+        $locale = app()->getLocale();
+
         $query = $request->input('query');
-        $books = Book::where('title', 'like', "%{$query}%")
-            ->orWhere('description', 'like', "%{$query}%")
-            // ->orWhere('authors', 'like', "%{$query}%")
-            ->with(['authors', 'categories'])
-            ->get();
+        $books = Book::where(function ($q) use ($query, $locale) {
+            if ($locale === 'en') {
+                $q->where('title', 'like', "%{$query}%")
+                ->orWhere('description_en', 'like', "%{$query}%");
+        }   else {
+            $q->where('title', 'like', "%{$query}%")
+              ->orWhere('description_id', 'like', "%{$query}%");
+        }
+    })
+        ->with(['authors', 'categories'])
+        ->get();
 
         return view('books.search', compact('books', 'query'));
     }
@@ -95,19 +103,6 @@ class BookController extends Controller
         return view('admin.editBook', compact('book', 'authors', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Book $book)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Book $book)
-    {
-        //
-    }
+ 
 }

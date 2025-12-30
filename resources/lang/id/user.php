@@ -16,7 +16,7 @@ return [
     "status" => "Status",
     "butt_borrow" => "PINJAM BUKU",
     "owned_book" => "Buku yang tersedia",
-    "view_all" => "Lihat detail",
+    "view_all" => "Lihat Lainnya",
 
     //search
     'search_result' => 'Hasil pencarian untuk ',
@@ -36,8 +36,10 @@ return [
 
     //borrowlist
     'readlist' => "Daftar Buku Bacaan Saya",
-    'borrow_date' => "tanggal pinjam",
-    'due_date' => 'tanggal pengembalian',
-    'butt_return' => 'kembalikan buku',
+    'borrow_date' => "Tanggal pinjam",
+    'due_date' => 'Tanggal pengembalian',
+    'butt_return' => 'Kembalikan buku',
+    'butt_read' => 'Baca Buku',
+    'no_borrow' => 'Tidak ada Buku yang dipinjam',
 
 ];

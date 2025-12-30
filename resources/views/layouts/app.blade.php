@@ -26,17 +26,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-<<<<<<< Updated upstream
-            const toast = document.getElementById('toast-container'); 
-            
-            if (toast) {
-=======
 
             const toast = document.getElementById('toast-container'); 
             
             if (toast) {
 
->>>>>>> Stashed changes
                 setTimeout(() => {
                     toast.classList.remove('opacity-0');
                     toast.classList.add('opacity-100');
