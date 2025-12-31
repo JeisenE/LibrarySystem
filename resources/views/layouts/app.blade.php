@@ -83,7 +83,7 @@
 
                     @if(session('role') == 'admin')
                         <a href="{{ route('admin-page') }}" class="text-orange-200 hover:text-white transition">
-                            Manage Books
+                            {{ __('admin.manage') }}
                         </a>
                     @endif
 
@@ -93,7 +93,7 @@
                         </a>
                     @endif
 
-                    <a href="{{ route('about') }}" class="block text-orange-200 hover:text-white">About Us</a>
+                    <a href="{{ route('about') }}" class="block text-orange-200 hover:text-white">{{__('admin.about')}}</a>
 
                     <div class="flex items-center gap-3 text-gray-400">
                         <div class="w-9 h-9 rounded-full bg-blue-200 text-blue-800

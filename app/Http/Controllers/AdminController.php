@@ -24,7 +24,8 @@ class AdminController extends Controller
     {   
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'description_id' => 'required',
+            'description_en'=>'required',
             'publish_year' => 'required',
             'publisher' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
@@ -38,7 +39,8 @@ class AdminController extends Controller
 
         $book = Book::create([
                 'title' => $request->title,
-                'description' => $request->description,
+                'description_id' => $request->description_id,
+                'description_en' => $request->description_en,
                 'image' => $imagePath,
                 'publish_year' => $request->publish_year,
                 'publisher' => $request->publisher,
@@ -70,8 +72,9 @@ class AdminController extends Controller
 
         $request->validate([
         'title'         => 'required|string|max:255',
-        'description'   => 'required|string',
-        'publish_year'  => 'required|string', // Ingat snake_case
+        'description_id'   => 'required|string',
+        'description_en' => 'required|string',
+        'publish_year'  => 'required|string',
         'publisher'     => 'required|string',
         'author_name'   => 'required|string',
         'category_ids'  => 'required|array',
@@ -79,7 +82,8 @@ class AdminController extends Controller
     ]);
         $book->update([
             'title' => $request->title,
-            'description' => $request->description,
+            'description_id' => $request->description_id,
+            'description_en' => $request->description_en,
             'publish_year' => $request->publish_year,
             'publisher'=> $request->publisher,
         ]);

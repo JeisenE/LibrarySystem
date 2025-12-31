@@ -10,7 +10,7 @@ return [
     "borrow" => "Buku yang dipinjam",
 
     //home
-    "author" => "dibuat oleh",
+    "author" => "Ditulis oleh",
     "publish" => "Tahun terbit",
     "category" => "Kategori",
     "status" => "Status",

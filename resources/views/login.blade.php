@@ -2,6 +2,31 @@
 
 @section('content')
 
+<div class="flex items-center sm:justify-start gap-3 mb-2">
+    
+    <span class="text-sm font-bold {{ app()->getLocale() == 'en' ? 'text-blue-600' : 'text-gray-400' }}">
+        EN
+    </span>
+
+    <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="lang-toggle" class="sr-only peer" 
+            {{ app()->getLocale() == 'id' ? 'checked' : '' }}>
+
+        <div class="w-14 h-8 bg-gray-200 rounded-full peer peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:bg-gray-700 peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-7 after:w-7 after:transition-all peer-checked:after:translate-x-full"></div>
+
+        <div class="absolute top-[4px] left-[5px] w-6 h-6 flex items-center justify-center transition-all peer-checked:opacity-0 peer-checked:-translate-x-full">
+            🇬🇧 </div>
+
+        <div class="absolute top-[4px] left-[5px] w-6 h-6 flex items-center justify-center opacity-0 translate-x-full transition-all peer-checked:opacity-100 peer-checked:translate-x-[100%]">
+            🇮🇩 </div>
+    </label>
+
+    <span class="text-sm font-bold {{ app()->getLocale() == 'id' ? 'text-blue-600' : 'text-gray-400' }}">
+        ID
+    </span>
+
+</div>
+
 <form action = "{{ route('login') }}" method = "POST" class = "flex flex-col gap-y-5">
     @csrf
         
@@ -44,4 +69,16 @@
         <a href="{{ route('regisForm') }}" class="text-orange-200 hover:underline">{{ __('auth.reg_link') }}</a>
     </div>
 </form>
+
+<script>
+    const toggle = document.getElementById('lang-toggle');
+    toggle.addEventListener('change', function(){
+        if(this.checked){
+            window.location.href = "{{ route('switch.language', 'id') }}";
+        }else{
+            window.location.href = "{{ route('switch.language', 'en') }}";
+        }
+    })
+</script>
+
 @endSection

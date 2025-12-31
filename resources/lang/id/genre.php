@@ -1,0 +1,32 @@
+<?php
+
+
+return [
+    'novel'=> 'Novel',
+    'fantasy' => 'Fantasi',
+    'fiction' => 'Fiksi',
+    'non-fiction' => 'Non-Fiksi',
+    'technology'  => 'Teknologi',
+    'science' => 'Sains',
+    'history'=> 'Sejarah',
+    'biography' => 'Biografi',
+    'education'=> 'Pendidikan',
+    'comics' => 'Komik',
+    'economy' => 'Ekonomi',
+    'romance' => 'Romansa',
+    'mystery'  => 'Misteri',
+    'thriller' => 'Thriller',
+    'adventure' => 'Petualangan',
+    'philosophy'=> 'Filsafat',
+    'self-help'=> 'Pengembangan Diri',
+    'classic' => 'Klasik',
+    'children' => 'Anak-anak',
+    'poetry'=> 'Puisi',
+    'drama' => 'Drama',
+    'motivation' => 'Motivasi',
+    'financial'=> 'Keuangan',
+    'sci-fi' => 'Fiksi Ilmiah',
+    'humor'  => 'Humor',
+    'political' => 'Politik',
+    'action' => 'Aksi',
+];

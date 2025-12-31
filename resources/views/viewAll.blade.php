@@ -15,9 +15,18 @@
     </div>
 
     @foreach($categories as $category)
+        @php
+            $genre_h2_Slug = Str::slug($category->name);
+            $translation_h2_Key = 'genre.' . $genre_h2_Slug;
+        @endphp
 
-        <h2 class="text-3xl font-bold text-white">{{ $category->name }}</h2>
-
+            <h2 class="text-3xl font-bold text-white mb-4" >
+                @if(Lang::has($translation_h2_Key))
+                    {{ __($translation_h2_Key) }}
+                @else
+                    {{ $category->name }}
+                @endif
+            </h2>
         <div class="relative">
 
             <!-- Left Button -->
@@ -45,9 +54,25 @@
                             <h3 class="font-bold text-white truncate">{{ $book->title }}</h3>
                             <p class="text-sm text-gray-400 truncate">By {{ $book->authors->first()->name ?? 'Unknown' }}</p>
                             
-                            <div class="flex flex-row flex-wrap">
+                            <div class="text-xs text-gray-500 mt-1 pr-[8px]flex flex-row flex-wrap">
                                 @foreach ($book->categories as $genre)
-                                    <p class="text-xs text-gray-500 mt-1 pr-[8px]">{{ $genre->name ?? general }}</p> 
+                                @php
+                                    $genreSlug = Str::slug($genre->name);
+                                    $translationKey = 'genre.' . $genreSlug;
+                                @endphp
+
+                                <span>
+                                    @if(Lang::has($translationKey))
+                                        {{ __($translationKey) }}
+                                    @else
+                                        {{ $genre->name }}
+                                    @endif
+                                </span>
+
+                                @if(!$loop->last)
+                                <span>, </span>
+                                @endif
+
                                 @endforeach
                             </div> 
                            

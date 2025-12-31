@@ -10,7 +10,7 @@ return [
     "borrow" => "Borrowed Books",
 
     //home
-    "author" => "by",
+    "author" => "By",
     "publish" => "Published",
     "category" => "Category",
     "status" => "Status",
