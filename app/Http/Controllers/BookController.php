@@ -58,13 +58,21 @@ class BookController extends Controller
      * Store a newly created resource in storage.
      */
     public function search(Request $request)
-    {
+    {   
+        $locale = app()->getLocale();
+
         $query = $request->input('query');
-        $books = Book::where('title', 'like', "%{$query}%")
-            ->orWhere('description', 'like', "%{$query}%")
-            // ->orWhere('authors', 'like', "%{$query}%")
-            ->with(['authors', 'categories'])
-            ->get();
+        $books = Book::where(function ($q) use ($query, $locale) {
+            if ($locale === 'en') {
+                $q->where('title', 'like', "%{$query}%")
+                ->orWhere('description_en', 'like', "%{$query}%");
+        }   else {
+            $q->where('title', 'like', "%{$query}%")
+              ->orWhere('description_id', 'like', "%{$query}%");
+        }
+    })
+        ->with(['authors', 'categories'])
+        ->get();
 
         return view('books.search', compact('books', 'query'));
     }
@@ -73,9 +81,16 @@ class BookController extends Controller
      * Display the specified resource.
      */
     public function show(Book $book)
-    {
+    {   
+        $user_id = session('user_id');
+        $validateBorrow = true;
+
+        $countCheck = Borrow::where('user_id', $user_id)->whereNull('return_date')->count();
+        if($countCheck >= 3){
+            $validateBorrow = false;
+        }
         $book->load(['authors', 'categories']);
-        return view('books.show', compact('book'));
+        return view('books.show', compact('book', 'validateBorrow'));
     }
 
     /**
@@ -88,19 +103,6 @@ class BookController extends Controller
         return view('admin.editBook', compact('book', 'authors', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Book $book)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Book $book)
-    {
-        //
-    }
+ 
 }

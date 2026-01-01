@@ -36,6 +36,13 @@ class CategorySeeder extends Seeder
             'Children',
             'Poetry',
             'Drama',
+            'Motivation',
+            'Financial',
+            'Sci-Fi',
+            'Humor',
+            'Political',
+            'Action'
+
         ];
 
         foreach ($categories as $category) {

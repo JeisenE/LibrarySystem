@@ -1,0 +1,43 @@
+<?php
+
+return [
+    //tombol
+    "butt_back"=>"back",
+
+    //layout
+    "home" => "Home",
+    "search" => "Search book",
+    "borrow" => "Borrowed Books",
+
+    //home
+    "author" => "By",
+    "publish" => "Published",
+    "category" => "Category",
+    "status" => "Status",
+    "butt_borrow" => "BORROW BOOK REQUEST",
+    "owned_book" => "Books We Have",
+    "view_all" => "View all ",
+
+    //search
+    'search_result' => 'Search Results for ',
+    'no_book_search' => 'No books found matching your criteria.',
+    'view_detail' => 'see detail',
+
+    //show book
+    'added' => 'Added on',
+    "publisher" => 'Publisher',
+
+    //view all
+    'view_title1' => "Explore and Search for",
+    'view_title2' => "Any Book ",
+    'view_title3' => "That You Need",
+    'no_data' => "No data available",
+
+    //borrow list
+    'readlist' => "My reading List",
+    'borrow_date' => "Borrow date",
+    'due_date' => 'Due date',
+    'butt_return' => 'Return Book',
+    'butt_read' => 'Read Book',
+    'no_borrow' => 'No Borrowed Books Yet'
+];
